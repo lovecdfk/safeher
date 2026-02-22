@@ -1,0 +1,69 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Index finger pointing up -->
+    <!-- Finger body - tall rectangle rounded at top -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="
+            M42,55
+            C42,55 42,20 42,18
+            C42,13 48,10 50,10
+            C52,10 58,13 58,18
+            C58,20 58,55 58,55
+            Z"/>
+
+    <!-- Finger tip rounded cap -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="
+            M42,18
+            A8,8 0 0 1 58,18
+            Z"/>
+
+    <!-- Palm / hand base -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="
+            M30,55
+            C30,55 30,62 30,65
+            C30,75 38,82 50,82
+            C62,82 70,75 70,65
+            C70,62 70,55 70,55
+            Z"/>
+
+    <!-- Left curl fingers -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M30,55 C30,55 30,48 34,46 C38,44 42,46 42,50 L42,55 Z"/>
+    <path
+        android:fillColor="#CC1133"
+        android:pathData="M30,55 C30,52 31,49 34,47.5"/>
+
+    <!-- Right curl fingers -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M70,55 C70,55 70,48 66,46 C62,44 58,46 58,50 L58,55 Z"/>
+    <path
+        android:fillColor="#CC1133"
+        android:pathData="M70,55 C70,52 69,49 66,47.5"/>
+
+    <!-- Knuckle highlights on index finger -->
+    <path
+        android:fillColor="#CC1133"
+        android:strokeColor="#00000000"
+        android:strokeWidth="0"
+        android:pathData="M44,35 Q50,33 56,35"/>
+    <path
+        android:fillColor="#CC1133"
+        android:pathData="M44,45 Q50,43 56,45"/>
+
+    <!-- Fingernail -->
+    <path
+        android:fillColor="#FFAABB"
+        android:pathData="M44,14 C44,12 46,11 50,11 C54,11 56,12 56,14 L56,20 C56,22 54,23 50,23 C46,23 44,22 44,20 Z"/>
+
+</vector>

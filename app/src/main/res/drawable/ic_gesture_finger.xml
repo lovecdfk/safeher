@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Outer pulse ring 1 -->
+    <path
+        android:name="ring1"
+        android:fillColor="#22FF2D55"
+        android:pathData="M60,60 m-52,0 a52,52 0 1,0 104,0 a52,52 0 1,0 -104,0"/>
+
+    <!-- Outer pulse ring 2 -->
+    <path
+        android:name="ring2"
+        android:fillColor="#33FF2D55"
+        android:pathData="M60,60 m-40,0 a40,40 0 1,0 80,0 a40,40 0 1,0 -80,0"/>
+
+    <!-- Inner glow ring -->
+    <path
+        android:name="ring3"
+        android:fillColor="#44FF2D55"
+        android:pathData="M60,60 m-28,0 a28,28 0 1,0 56,0 a28,28 0 1,0 -56,0"/>
+
+    <!-- FINGER: Palm base -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="
+            M44,68
+            C44,68 44,80 44,84
+            C44,96 50,103 60,103
+            C70,103 76,96 76,84
+            C76,80 76,68 76,68
+            Z"/>
+
+    <!-- FINGER: Index finger shaft (pointing up) -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="
+            M52,68
+            L52,26
+            C52,20 55,17 60,17
+            C65,17 68,20 68,26
+            L68,68
+            Z"/>
+
+    <!-- FINGER: Rounded fingertip -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M52,26 A8,8 0 0 1 68,26 Z"/>
+
+    <!-- FINGER: Curled left fingers -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M44,68 C44,68 44,60 47,58 C50,56 52,57 52,62 L52,68 Z"/>
+    <path
+        android:fillColor="#CC1133"
+        android:pathData="M44,68 C44,64 45,60 47,59"/>
+
+    <!-- FINGER: Curled right fingers -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M76,68 C76,68 76,60 73,58 C70,56 68,57 68,62 L68,68 Z"/>
+    <path
+        android:fillColor="#CC1133"
+        android:pathData="M76,68 C76,64 75,60 73,59"/>
+
+    <!-- FINGER: Knuckle lines -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#CC1133"
+        android:strokeWidth="1.5"
+        android:pathData="M54,45 Q60,43 66,45"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#CC1133"
+        android:strokeWidth="1.5"
+        android:pathData="M54,57 Q60,55 66,57"/>
+
+    <!-- FINGER: Fingernail -->
+    <path
+        android:fillColor="#FFAABB"
+        android:pathData="M54,20 C54,18 56,17 60,17 C64,17 66,18 66,20 L66,28 C66,30 64,31 60,31 C56,31 54,30 54,28 Z"/>
+
+    <!-- FINGER: Nail highlight -->
+    <path
+        android:fillColor="#FFDDEE"
+        android:pathData="M56,20 C56,19 57,18.5 59,18.5 L62,18.5 C62,18.5 63,19 63,20 L63,22 C63,23 62,23.5 60,23.5 C58,23.5 56,23 56,22 Z"/>
+
+</vector>

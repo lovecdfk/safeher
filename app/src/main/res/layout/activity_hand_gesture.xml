@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF0A0A0F"
+    android:fillViewport="true">
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Pinch gesture overlay — full screen, captures touch -->
+    <com.safeher.app.PinchOverlayView
+        android:id="@+id/pinchOverlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"/>
+
+    <!-- ── UI overlay ── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:minHeight="100dp">
+
+        <!-- Back -->
+        <TextView
+            android:id="@+id/tvGestureBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← Back"
+            android:textColor="#AA9DB4BF"
+            android:textSize="15sp"
+            android:paddingTop="12dp"
+            android:paddingBottom="6dp"/>
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pinch-Out SOS 🤏"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spread two fingers apart fast → SOS triggers"
+            android:textColor="#AA9DB4BF"
+            android:textSize="12sp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ══ LOCK SCREEN SETUP CARD ══ -->
+        <LinearLayout
+            android:id="@+id/cardAccessibilitySetup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1A7C3AED"
+            android:padding="16dp"
+            android:layout_marginBottom="14dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔒"
+                    android:textSize="22sp"
+                    android:layout_marginEnd="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Works on Locked Screen"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/tvAccessibilityStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚠️ Not enabled — tap to set up"
+                        android:textColor="#FFF59E0B"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Grant Accessibility permission so SaveSouls can detect the pinch gesture even when your screen is locked — no unlock needed."
+                android:textColor="#99FFFFFF"
+                android:textSize="11sp"
+                android:lineSpacingMultiplier="1.4"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/tvAccessibilityBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enable Now →"
+                android:textColor="#7C3AED"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:background="#22FFFFFF"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"/>
+        </LinearLayout>
+
+        <!-- Status bar -->
+        <TextView
+            android:id="@+id/tvGestureStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🤏 Place two fingers and spread apart"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:background="#44FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="6dp"/>
+
+        <!-- Spread progress hint -->
+        <TextView
+            android:id="@+id/tvArcHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#AAFFFFFF"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Large gesture demo area -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="220dp"/>
+
+        <!-- IDLE instructions -->
+        <LinearLayout
+            android:id="@+id/layoutGestureReady"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="#33FFFFFF"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🤏  Place both thumbs on screen"
+                android:textColor="#CCFFFFFF"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Then quickly spread them outward\nThe faster and wider, the better"
+                android:textColor="#88FFFFFF"
+                android:textSize="11sp"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.5"/>
+        </LinearLayout>
+
+        <!-- COUNTING OVERLAY -->
+        <LinearLayout
+            android:id="@+id/layoutGestureOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#EE150010"
+            android:padding="20dp"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvGestureCountdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="#FF2D55"
+                android:textSize="64sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <ProgressBar
+                android:id="@+id/progressGestureRing"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="200dp"
+                android:layout_height="14dp"
+                android:max="100"
+                android:progress="0"
+                android:progressTint="#FF2D55"
+                android:progressBackgroundTint="#33FF2D55"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🤏 Pinch-out detected! SOS firing…"
+                android:textColor="#CCFFFFFF"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+        <!-- Live detection switch -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#1AFFFFFF"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="In-App Detection"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detects pinch while this screen is open"
+                    android:textColor="#779DB4BF"
+                    android:textSize="10sp"/>
+            </LinearLayout>
+            <Switch
+                android:id="@+id/switchGestureEnable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>
+</ScrollView>

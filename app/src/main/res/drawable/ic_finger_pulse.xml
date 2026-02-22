@@ -1,0 +1,48 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Outer pulse ring -->
+    <path
+        android:fillColor="#33FF2D55"
+        android:pathData="M50,50 m-40,0 a40,40 0 1,0 80,0 a40,40 0 1,0 -80,0"/>
+
+    <!-- Middle ring -->
+    <path
+        android:fillColor="#55FF2D55"
+        android:pathData="M50,50 m-28,0 a28,28 0 1,0 56,0 a28,28 0 1,0 -56,0"/>
+
+    <!-- Finger icon centre -->
+    <!-- Palm base -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M35,52 C35,52 35,60 35,63 C35,71 41,77 50,77 C59,77 65,71 65,63 C65,60 65,52 65,52 Z"/>
+
+    <!-- Index finger up -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M44,52 L44,22 C44,17 46,15 50,15 C54,15 56,17 56,22 L56,52 Z"/>
+
+    <!-- Rounded fingertip -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M44,22 A6,6 0 0 1 56,22 Z"/>
+
+    <!-- Curled fingers left -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M35,52 C35,52 35,46 38,44 C41,42 44,44 44,48 L44,52 Z"/>
+
+    <!-- Curled fingers right -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M65,52 C65,52 65,46 62,44 C59,42 56,44 56,48 L56,52 Z"/>
+
+    <!-- Fingernail -->
+    <path
+        android:fillColor="#FFAABB"
+        android:pathData="M45,17 C45,15 47,14 50,14 C53,14 55,15 55,17 L55,22 C55,24 53,25 50,25 C47,25 45,24 45,22 Z"/>
+
+</vector>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Back -->
+        <TextView
+            android:id="@+id/tvGestureBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← Back"
+            android:textColor="@color/muted"
+            android:textSize="15sp"
+            android:paddingTop="12dp"
+            android:paddingBottom="8dp"/>
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hand Gesture SOS"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show ☝ one finger → hold 4 sec → SOS fires"
+            android:textColor="@color/muted"
+            android:textSize="13sp"
+            android:layout_marginBottom="28dp"/>
+
+        <!-- ═══ ANIMATED FINGER CARD ═══ -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#1A1A2E"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="32dp">
+
+                <!-- Animated vector finger -->
+                <ImageView
+                    android:id="@+id/ivFingerVector"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_gesture_finger"
+                    android:contentDescription="Finger gesture"
+                    android:layout_marginBottom="20dp"/>
+
+                <!-- Detection state label -->
+                <TextView
+                    android:id="@+id/tvGestureState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toggle ON to start watching"
+                    android:textColor="@color/muted"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- ── DETECTING PANEL (visible when finger is detected) ── -->
+                <LinearLayout
+                    android:id="@+id/layoutDetecting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <ProgressBar
+                        android:id="@+id/progressHold"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="220dp"
+                        android:layout_height="18dp"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressTint="#FF2D55"
+                        android:progressBackgroundTint="#33FF2D55"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Keep finger raised to trigger SOS"
+                        android:textColor="#AAFFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ═══ TOGGLE CARD ═══ -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#1E1E30"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Background Detection"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/tvGestureStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Disabled — toggle ON to activate"
+                            android:textColor="@color/muted"
+                            android:textSize="12sp"
+                            android:layout_marginTop="3dp"/>
+                    </LinearLayout>
+
+                    <Switch
+                        android:id="@+id/switchGesture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumbTint="#FF2D55"
+                        android:trackTint="#663D3D3D"/>
+                </LinearLayout>
+
+                <!-- Active status badge -->
+                <LinearLayout
+                    android:id="@+id/layoutActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="#15FF2D55"
+                    android:padding="12dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="●"
+                        android:textColor="#FF2D55"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Running in background — front camera watching"
+                        android:textColor="#CCFFFFFF"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ═══ HINT CARD ═══ -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#1E1E30"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="How to use"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+                    <TextView android:layout_width="32dp" android:layout_height="32dp"
+                        android:text="1" android:textColor="#FF2D55"
+                        android:textSize="16sp" android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="#22FF2D55"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Toggle ON — runs silently in background"
+                        android:textColor="@color/muted" android:textSize="13sp"
+                        android:layout_marginStart="12dp"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+                    <TextView android:layout_width="32dp" android:layout_height="32dp"
+                        android:text="2" android:textColor="#FF2D55"
+                        android:textSize="16sp" android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="#22FF2D55"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Point ☝ ONE finger at your front camera"
+                        android:textColor="@color/muted" android:textSize="13sp"
+                        android:layout_marginStart="12dp"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+                    <TextView android:layout_width="32dp" android:layout_height="32dp"
+                        android:text="3" android:textColor="#FF2D55"
+                        android:textSize="16sp" android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="#22FF2D55"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Hold it steady for 4 seconds"
+                        android:textColor="@color/muted" android:textSize="13sp"
+                        android:layout_marginStart="12dp"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="32dp" android:layout_height="32dp"
+                        android:text="🆘" android:textSize="16sp"
+                        android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="SOS fires automatically — alarm + SMS + GPS"
+                        android:textColor="#FF2D55" android:textSize="13sp" android:textStyle="bold"
+                        android:layout_marginStart="12dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ═══ TIP ═══ -->
+        <TextView
+            android:id="@+id/tvGestureHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💡 Works even when your phone is locked or in your pocket. Best used when you cannot physically press a button. The front camera uses minimal battery at low FPS."
+            android:textColor="@color/muted"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginBottom="20dp"/>
+
+    </LinearLayout>
+</ScrollView>

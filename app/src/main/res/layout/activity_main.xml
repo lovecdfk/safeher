@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingTop="20dp" android:paddingBottom="12dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="SafeHer 🛡️"
+                    android:textColor="@color/white" android:textSize="30sp" android:textStyle="bold"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="AI-Powered Women Safety"
+                    android:textColor="@color/muted" android:textSize="13sp" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="● PROTECTED"
+                android:textColor="@color/green" android:textSize="10sp" android:textStyle="bold"
+                android:background="@drawable/badge_green"
+                android:paddingStart="10dp" android:paddingEnd="10dp"
+                android:paddingTop="5dp" android:paddingBottom="5dp"/>
+        </LinearLayout>
+
+        <!-- BIG SOS -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSos"
+            android:layout_width="match_parent" android:layout_height="130dp"
+            android:layout_marginBottom="14dp"
+            app:cardBackgroundColor="@color/red_bg_strong" app:cardCornerRadius="20dp"
+            app:strokeColor="@color/red" app:strokeWidth="2dp" app:cardElevation="12dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                android:orientation="horizontal" android:gravity="center_vertical" android:padding="20dp">
+                <TextView android:layout_width="70dp" android:layout_height="70dp"
+                    android:text="🆘" android:textSize="40sp" android:gravity="center"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="SOS Emergency" android:textColor="@color/white"
+                        android:textSize="22sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="GPS • SMS • Alarm • Record" android:textColor="#BBFFFFFF"
+                        android:textSize="12sp" android:layout_marginTop="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="TAP OR VOL ±×3 →" android:textColor="@color/red_light"
+                        android:textSize="11sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Radar Map card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardRadarMap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="@color/card_dark"
+            app:cardCornerRadius="20dp"
+            app:strokeColor="#221A34D3"
+            app:strokeWidth="1dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:text="📡"
+                    android:textSize="32sp"
+                    android:gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Live Radar Map"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contacts • BT devices • SafeHer users"
+                        android:textColor="@color/muted"
+                        android:textSize="12sp"
+                        android:layout_marginTop="3dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="▶"
+                    android:textColor="#7C3AED"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Row 1: Safe Walk + Recorder -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="12dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSafeWalk"
+                android:layout_width="0dp" android:layout_height="120dp"
+                android:layout_weight="1" android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+                app:strokeColor="@color/green_bg_stroke" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="vertical" android:gravity="center" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="🚶" android:textSize="30sp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Safe Walk" android:textColor="@color/green"
+                        android:textSize="14sp" android:textStyle="bold"
+                        android:layout_marginTop="6dp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Auto-SOS if no check-in" android:textColor="@color/muted"
+                        android:textSize="11sp" android:gravity="center" android:layout_marginTop="3dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardRecorder"
+                android:layout_width="0dp" android:layout_height="120dp"
+                android:layout_weight="1" android:layout_marginStart="8dp"
+                app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+                app:strokeColor="@color/border" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="vertical" android:gravity="center" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="🎙️" android:textSize="30sp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Evidence Recorder" android:textColor="@color/white"
+                        android:textSize="13sp" android:textStyle="bold"
+                        android:layout_marginTop="6dp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Record &amp; save audio" android:textColor="@color/muted"
+                        android:textSize="11sp" android:gravity="center" android:layout_marginTop="3dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Scream Detection card (full width) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardScreamDetect"
+            android:layout_width="match_parent" android:layout_height="100dp"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+            app:strokeColor="#FF2D55" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                android:orientation="horizontal" android:gravity="center_vertical" android:padding="18dp">
+                <TextView android:layout_width="55dp" android:layout_height="55dp"
+                    android:text="🎙️" android:textSize="28sp" android:gravity="center"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Scream Detection"
+                        android:textColor="@color/white" android:textSize="16sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Auto-SOS on scream detection"
+                        android:textColor="@color/muted" android:textSize="11sp" android:layout_marginTop="3dp"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvScreamBadge"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="OFF"
+                    android:textColor="@color/muted" android:textSize="11sp" android:textStyle="bold"
+                    android:background="@drawable/badge_green"
+                    android:paddingStart="10dp" android:paddingEnd="10dp"
+                    android:paddingTop="5dp" android:paddingBottom="5dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Row 2: Chat + Contacts -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="12dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardChat"
+                android:layout_width="0dp" android:layout_height="120dp"
+                android:layout_weight="1" android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+                app:strokeColor="@color/border" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="vertical" android:gravity="center" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="🤖" android:textSize="30sp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="AI Assistant" android:textColor="@color/white"
+                        android:textSize="14sp" android:textStyle="bold"
+                        android:layout_marginTop="6dp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Legal help" android:textColor="@color/muted"
+                        android:textSize="11sp" android:gravity="center" android:layout_marginTop="3dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardContacts"
+                android:layout_width="0dp" android:layout_height="120dp"
+                android:layout_weight="1" android:layout_marginStart="8dp"
+                app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+                app:strokeColor="@color/border" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="vertical" android:gravity="center" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="👥" android:textSize="30sp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Contacts" android:textColor="@color/white"
+                        android:textSize="14sp" android:textStyle="bold"
+                        android:layout_marginTop="6dp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Emergency contacts" android:textColor="@color/muted"
+                        android:textSize="11sp" android:gravity="center" android:layout_marginTop="3dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Row 3: Fake Call + Helplines -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardFakeCall"
+                android:layout_width="0dp" android:layout_height="120dp"
+                android:layout_weight="1" android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+                app:strokeColor="@color/border" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="vertical" android:gravity="center" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="📞" android:textSize="30sp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Fake Call" android:textColor="@color/white"
+                        android:textSize="14sp" android:textStyle="bold"
+                        android:layout_marginTop="6dp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Escape situations" android:textColor="@color/muted"
+                        android:textSize="11sp" android:gravity="center" android:layout_marginTop="3dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHelplines"
+                android:layout_width="0dp" android:layout_height="120dp"
+                android:layout_weight="1" android:layout_marginStart="8dp"
+                app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+                app:strokeColor="@color/border" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:orientation="vertical" android:gravity="center" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="📋" android:textSize="30sp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Helplines" android:textColor="@color/white"
+                        android:textSize="14sp" android:textStyle="bold"
+                        android:layout_marginTop="6dp" android:gravity="center"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="1091 • 100 • 108" android:textColor="@color/red"
+                        android:textSize="11sp" android:gravity="center" android:layout_marginTop="3dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Widget tip -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+            app:strokeColor="@color/border" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="📱" android:textSize="26sp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:layout_marginStart="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Home Screen Widget"
+                        android:textColor="@color/white" android:textSize="14sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Long-press home screen → Widgets → SaveSouls SOS"
+                        android:textColor="@color/muted" android:textSize="12sp" android:layout_marginTop="3dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

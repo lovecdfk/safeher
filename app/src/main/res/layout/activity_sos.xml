@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView android:id="@+id/tvBack"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="← Back" android:textColor="@color/muted" android:textSize="15sp"
+            android:paddingTop="12dp" android:paddingBottom="16dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="SOS Emergency" android:textColor="@color/white"
+            android:textSize="28sp" android:textStyle="bold"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Tap • Shake 3× • Volume ±×3 • Hand Gesture • Widget"
+            android:textColor="@color/muted" android:textSize="13sp"
+            android:layout_marginTop="4dp" android:layout_marginBottom="28dp"/>
+
+        <!-- ALARM ACTIVE banner -->
+        <LinearLayout
+            android:id="@+id/layoutAlarmActive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/alarm_active_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvAlarmStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔴 ALARM ACTIVE"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <!-- Live camera evidence indicator -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#22FFFFFF"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tvCameraLed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="●"
+                    android:textSize="18sp"
+                    android:textColor="#FF3B30"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvCameraStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📷 Camera: waiting..."
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStopAlarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="■  STOP ALARM + RECORDING"
+                android:textColor="@color/white"
+                android:layout_marginTop="12dp"
+                app:backgroundTint="#333333"
+                app:cornerRadius="12dp"/>
+        </LinearLayout>
+
+        <!-- SOS Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSos"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center_horizontal"
+            android:text="🆘 SOS"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/red"
+            app:cornerRadius="90dp"
+            app:elevation="16dp"/>
+
+        <!-- Countdown -->
+        <LinearLayout android:id="@+id/layoutCountdown"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="center"
+            android:layout_marginTop="24dp" android:visibility="gone">
+
+            <TextView android:id="@+id/tvCountdownLabel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Sending SOS in 5s..." android:textColor="@color/red"
+                android:textSize="15sp" android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <ProgressBar android:id="@+id/progressCountdown"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent" android:layout_height="12dp"
+                android:max="100" android:progress="100"
+                android:progressTint="@color/red"
+                android:progressBackgroundTint="@color/border"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="✕  Cancel" android:textColor="@color/muted"
+                android:layout_marginTop="14dp"
+                app:backgroundTint="@color/card_dark"
+                app:strokeColor="@color/border" app:strokeWidth="1dp"
+                app:cornerRadius="30dp"/>
+        </LinearLayout>
+
+        <!-- Location -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+            app:strokeColor="@color/border" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="📍  Your GPS Location" android:textColor="@color/white"
+                    android:textSize="14sp" android:textStyle="bold"/>
+                <TextView android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Fetching location..." android:textColor="@color/green"
+                    android:textSize="13sp" android:fontFamily="monospace"
+                    android:layout_marginTop="6dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Shake -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+            app:strokeColor="@color/border" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:padding="16dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="📳  Shake to SOS" android:textColor="@color/white"
+                        android:textSize="14sp" android:textStyle="bold"/>
+                    <TextView android:id="@+id/tvShakeStatus"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Active — shake 3× rapidly"
+                        android:textColor="@color/muted" android:textSize="11sp"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+                <Switch android:id="@+id/switchShake"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="@color/red" android:trackTint="@color/border"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Volume tip -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+            app:strokeColor="@color/border" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🔊" android:textSize="26sp"
+                    android:layout_marginEnd="12dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Volume Button SOS" android:textColor="@color/white"
+                        android:textSize="14sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Press + or − volume 3× quickly to trigger SOS (even with screen off)"
+                        android:textColor="@color/muted" android:textSize="11sp"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Finger Gesture SOS -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardGestureSos"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+            app:strokeColor="#7C3AED" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:padding="16dp">
+                <TextView
+                    android:id="@+id/ivGestureIcon"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="🤏"
+                    android:textSize="28sp"
+                    android:gravity="center"
+                    android:layout_marginEnd="12dp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="🤏 Pinch-Out SOS" android:textColor="@color/white"
+                        android:textSize="14sp" android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/tvGestureSosStatus"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Spread two fingers apart fast → SOS triggers"
+                        android:textColor="@color/muted" android:textSize="11sp"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvGestureBadge"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="OFF"
+                    android:textColor="@color/muted" android:textSize="9sp" android:textStyle="bold"
+                    android:background="@drawable/badge_green"
+                    android:paddingStart="8dp" android:paddingEnd="8dp"
+                    android:paddingTop="4dp" android:paddingBottom="4dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Evidence Gallery -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardEvidence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/card_dark"
+            app:cardCornerRadius="16dp"
+            app:strokeColor="@color/border"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="📷  Evidence Photos"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvPhotoCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 photos"
+                        android:textColor="@color/muted"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="10dp"/>
+
+                    <TextView
+                        android:id="@+id/tvDeleteAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Clear all"
+                        android:textColor="@color/red"
+                        android:textSize="12sp"
+                        android:padding="4dp"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <!-- Empty state -->
+                <TextView
+                    android:id="@+id/tvNoPhotos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No evidence photos yet.\nPhotos appear here when SOS is active."
+                    android:textColor="@color/muted"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="24dp"/>
+
+                <!-- Photo grid -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPhotos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Widget tip -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="@color/card_dark" app:cardCornerRadius="16dp"
+            app:strokeColor="@color/border" app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="📱" android:textSize="26sp"
+                    android:layout_marginEnd="12dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Home Screen Widget" android:textColor="@color/white"
+                        android:textSize="14sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Long-press your home screen → Widgets → SaveSouls SOS"
+                        android:textColor="@color/muted" android:textSize="11sp"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

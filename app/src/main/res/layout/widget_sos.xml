@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widgetRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/widget_bg"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tvWidgetLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SaveSouls 🛡️"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Big SOS Button -->
+    <Button
+        android:id="@+id/widgetBtnSos"
+        android:layout_width="140dp"
+        android:layout_height="54dp"
+        android:text="🆘  SOS"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:background="@drawable/widget_sos_btn"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Stop Alarm Button -->
+    <Button
+        android:id="@+id/widgetBtnStop"
+        android:layout_width="140dp"
+        android:layout_height="38dp"
+        android:text="■  Stop Alarm"
+        android:textColor="#FF2D55"
+        android:textSize="12sp"
+        android:background="@drawable/widget_stop_btn"/>
+
+</LinearLayout>

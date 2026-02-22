@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SaveSouls</string>
+    <string name="accessibility_service_description">SaveSouls uses this to detect a two-finger pinch-out gesture anywhere on your screen — including when your phone is locked — to trigger an emergency SOS alert.</string>
+</resources>

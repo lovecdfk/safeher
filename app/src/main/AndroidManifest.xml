@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Location -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- SMS -->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <!-- Audio -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <!-- Camera -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- System -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <!-- Bluetooth — for People Around detection -->
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" tools:targetApi="s"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SaveSouls"
+        android:usesCleartextTraffic="true">
+
+        <activity android:name=".MainActivity" android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".SosActivity"
+            android:screenOrientation="portrait"
+            android:showOnLockScreen="true"
+            android:turnScreenOn="true"
+            android:showWhenLocked="true"/>
+        <activity android:name=".ChatActivity"     android:screenOrientation="portrait"/>
+        <activity android:name=".ContactsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".RecorderActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SafeWalkActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".RadarMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".FakeCallActivity" android:screenOrientation="portrait"
+            android:showOnLockScreen="true" android:turnScreenOn="true"/>
+        <activity android:name=".ScreamDetectActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".PhotoViewerActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".HandGestureActivity"
+            android:screenOrientation="portrait"
+            android:showOnLockScreen="true"
+            android:turnScreenOn="true"
+            android:showWhenLocked="true"/>
+        <activity android:name=".HandGestureSetupActivity" android:screenOrientation="portrait"/>
+
+        <!-- Pinch-Out Accessibility Service — detects spread gesture on lock screen -->
+        <service
+            android:name=".PinchAccessibilityService"
+            android:exported="true"
+            android:label="SaveSouls Pinch-Out SOS"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/pinch_accessibility_service"/>
+        </service>
+
+        <!-- Hand Gesture SOS — background camera service -->
+        <service android:name=".HandGestureService"
+            android:foregroundServiceType="camera"
+            android:exported="false"/>
+
+        <!-- Main background protection service -->
+        <service android:name=".SafeHerService"
+            android:foregroundServiceType="location|microphone"
+            android:exported="false"/>
+
+        <!-- SOS alarm + recording service -->
+        <service android:name=".SosService"
+            android:foregroundServiceType="microphone"
+            android:exported="false"/>
+
+        <!-- Camera evidence service — captures photos every 5s during SOS -->
+        <service android:name=".CameraEvidenceService"
+            android:foregroundServiceType="camera"
+            android:exported="false"/>
+
+        <receiver android:name=".SosWidget" android:exported="true" android:label="SaveSouls SOS">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.safeher.app.WIDGET_SOS"/>
+                <action android:name="com.safeher.app.WIDGET_STOP"/>
+                <action android:name="com.safeher.app.WIDGET_REFRESH"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/sos_widget_info"/>
+        </receiver>
+
+        <receiver android:name=".BootReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

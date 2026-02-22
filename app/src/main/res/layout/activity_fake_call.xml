@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#0F0A1A">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SafeHer — Fake Call"
+        android:textColor="#44FFFFFF"
+        android:textSize="12sp"
+        android:layout_marginTop="48dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Incoming call..."
+        android:textColor="#88FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Caller emoji avatar -->
+    <TextView
+        android:id="@+id/tvCallerEmoji"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:text="👩"
+        android:textSize="52sp"
+        android:gravity="center"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/avatar_circle"/>
+
+    <TextView
+        android:id="@+id/tvCallerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mom"
+        android:textColor="@android:color/white"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvCallStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ringing..."
+        android:textColor="#99FFFFFF"
+        android:textSize="15sp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvCallTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textColor="#34D399"
+        android:textSize="14sp"
+        android:layout_marginTop="6dp"
+        android:visibility="gone"/>
+
+    <!-- Spacer -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Call Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingBottom="60dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReject"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginEnd="60dp"
+            android:text="📵"
+            android:textSize="28sp"
+            app:backgroundTint="#FF2D55"
+            app:cornerRadius="36dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAccept"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:text="📞"
+            android:textSize="28sp"
+            app:backgroundTint="#34D399"
+            app:cornerRadius="36dp"/>
+    </LinearLayout>
+
+</LinearLayout>
